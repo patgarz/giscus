@@ -23,16 +23,16 @@ export async function getStaticProps() {
   const [afterConfig] = contents[1].split('<!-- end -->');
   contents[1] = `${afterConfig}\n## try it out 👇👇👇\n`;
 
-  const token = await getAppAccessToken('giscus/giscus').catch(() => '');
+  const token = await getAppAccessToken('patgarz/giscus').catch(() => '');
   const [contentBefore, contentAfter] = await Promise.all(
-    contents.map(async (section) => await renderMarkdown(section, token, 'giscus/giscus')),
+    contents.map(async (section) => await renderMarkdown(section, token, 'patgarz/giscus')),
   );
 
   const comment: IComment = {
     author: {
       avatarUrl: 'https://avatars.githubusercontent.com/in/106117',
       login: 'giscus',
-      url: 'https://github.com/apps/giscus',
+      url: 'https://github.com/apps/giscus-pgarz-com',
     },
     authorAssociation: 'app',
     bodyHTML: contentBefore,
@@ -48,7 +48,7 @@ export async function getStaticProps() {
     replies: [],
     replyCount: 0,
     upvoteCount: 0,
-    url: 'https://github.com/giscus/giscus',
+    url: 'https://github.com/patgarz/giscus',
     viewerDidAuthor: false,
     viewerHasUpvoted: false,
     viewerCanUpvote: false,
@@ -111,21 +111,15 @@ export default function Home({
         <div className="w-full my-8 giscus" />
         <Script
           src="/client.js"
-          data-repo="giscus/giscus"
-          data-repo-id="MDEwOlJlcG9zaXRvcnkzNTE5NTgwNTM="
-          data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyNzk2NTc1"
+          data-repo="patgarz/giscus"
+          data-repo-id="R_kgDOGKepkQ"
+          data-category-id="DIC_kwDOGKepkc4B_TM_"
           data-mapping="specific"
           data-term="Welcome to giscus!"
           data-theme="light"
           data-reactions-enabled="1"
           data-emit-metadata="0"
         />
-        <a
-          className="block mx-auto mb-6 w-max"
-          href="https://vercel.com/?utm_source=giscus&utm_campaign=oss"
-        >
-          <img src="/powered-by-vercel.svg" alt="Powered by Vercel" />
-        </a>
       </div>
     </main>
   );

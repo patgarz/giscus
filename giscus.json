@@ -1,8 +1,11 @@
 {
   "origins": [
-    "https://giscus.pgarz.com"
+    "https://giscus.pgarz.com",
+    "https://pgarz.com",
+    "https://giscus-pgarz-com-patgarz.vercel.app"
   ],
   "originsRegex": [
-    "http://localhost:[0-9]+"
+    "http://localhost:[0-9]+",
+    "https://giscus-pgarz-com-git-([A-z0-9]|-)*giscus\\.vercel\\.app"
   ]
 }
